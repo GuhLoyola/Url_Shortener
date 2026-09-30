@@ -1,0 +1,75 @@
+{
+  "dialect": "postgres",
+  "id": "428f555a-31a2-49c0-9e22-9a8456865de8",
+  "prevIds": [
+    "00000000-0000-0000-0000-000000000000"
+  ],
+  "version": "8",
+  "ddl": [
+    {
+      "isRlsEnabled": false,
+      "name": "url",
+      "entityType": "tables",
+      "schema": "public"
+    },
+    {
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "url_id_seq",
+        "increment": "1",
+        "minValue": "1",
+        "maxValue": "2147483647",
+        "startWith": "1",
+        "cycle": false,
+        "cache": 1
+      },
+      "name": "id",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "url"
+    },
+    {
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "url_original",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "url"
+    },
+    {
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "name": "url_encurtada",
+      "entityType": "columns",
+      "schema": "public",
+      "table": "url"
+    },
+    {
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": true,
+      "name": "url_pkey",
+      "entityType": "pks",
+      "schema": "public",
+      "table": "url"
+    }
+  ],
+  "renames": []
+}
