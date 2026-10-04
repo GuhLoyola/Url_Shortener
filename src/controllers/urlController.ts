@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 import * as urlService from "../services/urlService"
 
 const PORT = process.env.PORT;
-
+const BASE_URL = process.env.BASE_URL;
 
 export async function verificarStatus(_: Request, res: Response) {
     return res.status(200).send("OK");
@@ -35,7 +35,7 @@ export async function findUrlEncurtadaById(req: Request, res: Response) {
         return res.status(404).send("URL não encontrada!");
     }
 
-    const urlEncurtada = `http://localhost:${PORT}/${result.urlEncurtada}`
+    const urlEncurtada = `${BASE_URL}/${result.urlEncurtada}`
 
     return res.status(200).json({ Url_Encurtada: urlEncurtada });
 }
@@ -52,7 +52,7 @@ export async function findUrlEncurtadaByEncurtamento(req: Request, res: Response
         return res.status(404).send("URL não encontrada!");
     }
 
-    const urlEncurtada = `http://localhost:${PORT}/${result.urlEncurtada}`
+    const urlEncurtada = `${BASE_URL}/${result.urlEncurtada}`
 
     return res.status(200).json({ Url_Encurtada: urlEncurtada });
 }
@@ -84,13 +84,13 @@ export async function incluirUrl(req: Request, res: Response) {
     const urlExistente = await urlService.findByUrlOriginal(urlOriginal);
 
     if (urlExistente) {
-        let encurtadaExistente = `http://localhost:${PORT}/${urlExistente.urlEncurtada}`
+        let encurtadaExistente = `${BASE_URL}/${urlExistente.urlEncurtada}`
         return res.status(200).json({ Id: urlExistente.id, Url_Encurtada: encurtadaExistente });
     }
 
     const result = await urlService.incluirUrl(urlOriginal);
 
-    const resultUrlEncurtada = `http://localhost:${PORT}/${result.urlEncurtada}`
+    const resultUrlEncurtada = `${BASE_URL}/${result.urlEncurtada}`
 
     return res.status(201).json({ Id: result.id, Url_Encurtada: resultUrlEncurtada })
 }
