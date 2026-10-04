@@ -1,3 +1,4 @@
+import "dotenv/config";
 import swaggerJsdoc from "swagger-jsdoc";
 
 const options: swaggerJsdoc.Options = {
@@ -12,7 +13,7 @@ const options: swaggerJsdoc.Options = {
 
         servers: [
             {
-                url: "http://localhost:8080",
+                url: process.env.BASE_URL || "http://localhost:8080",
                 description: "Ambiente local"
             }
         ]
